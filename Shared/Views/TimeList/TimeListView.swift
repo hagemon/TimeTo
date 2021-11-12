@@ -97,20 +97,27 @@ struct TimeListView: View {
                         })
                     }
                 } else {
+                    Section {
+                        HStack {
+                            Spacer()
+                            Image("stars_logo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxHeight: 300)
+                            Spacer()
+                        }.listRowBackground(Color.clear)
+                        
+                    }
                     HStack {
                         Spacer()
                         Text("点击右上角，添加一个提醒吧！")
                         Spacer()
                     }.padding()
-                    
                 }
                 
             }
             .refreshable {
                 refreshTime = Date.now
-                items.forEach({item in
-                    print(item.cycleNotify)
-                })
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -135,7 +142,10 @@ struct TimeListView: View {
 //                )
 //            })
         }
-        
+        .navigationViewStyle(.stack)
+        .onAppear(perform: {
+            refreshTime = Date.now
+        })
     }
     
     private func deleteItem(at offsets: IndexSet, in section: Int) {
@@ -155,14 +165,20 @@ struct TimeListView: View {
     }
     
     private func refreshItem(item: Item) {
-        if item.cycleNotify {
-            let now = Date.now
+        let category = Category(rawValue: item.category!) ?? .cycle
+        let now = Date.now
+        if category == .cycle {
+            item.end = now.forward(number: Int(item.digit), unit: TimeUnit.inverse(rawValue: item.unit!))
             item.start = now
-            item.end = now.forward(number: Int(item.digit), unit: TimeUnit(rawValue: item.unit!) ?? .day)
             item.setNotification()
         } else {
-            item.deleteNotification()
-            viewContext.delete(item)
+            if item.cycleNotify {
+                item.end = item.getNextEnd()
+                item.setNotification()
+            } else {
+                item.deleteNotification()
+                viewContext.delete(item)
+            }
         }
         do {
             try viewContext.save()
@@ -191,6 +207,6 @@ struct TimeListView: View {
 struct TimeListView_Previews: PreviewProvider {
     static var previews: some View {
         TimeListView(title: "日常更换", category: .daily).preferredColorScheme(.dark).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext).previewInterfaceOrientation(.portraitUpsideDown)
-        TimeListView(title: "日常更换", category: .cycle).preferredColorScheme(.dark)
+        TimeListView(title: "日常更换", category: .cycle).preferredColorScheme(.dark).previewInterfaceOrientation(.landscapeRight)
     }
 }

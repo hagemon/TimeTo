@@ -28,5 +28,6 @@ struct DatePickerView_Previews: PreviewProvider {
         NavigationView {
             DatePickerView(date: $date)
         }
+        .preferredColorScheme(.light)
     }
 }

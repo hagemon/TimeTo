@@ -10,7 +10,8 @@ import Foundation
 extension Date {
     var standard: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
         return formatter.string(from: self)
     }
     
@@ -59,7 +60,9 @@ extension Date {
         case .month:
             comp = .month
         }
-        return Calendar.current.date(byAdding: comp, value: number, to: self) ?? self
+        let date = Calendar.current.date(byAdding: comp, value: number, to: self) ?? self
+        let c = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+        return Calendar.current.date(from: c) ?? self
     }
     
 }

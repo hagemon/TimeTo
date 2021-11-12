@@ -44,7 +44,6 @@ struct DateRangeView: View {
                     saveTimeConfig()
                     items.forEach({
                         item in
-                        print(item.objectID)
                     })
                     presentationMode.wrappedValue.dismiss()
                 }, label: {

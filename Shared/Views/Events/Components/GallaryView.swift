@@ -12,7 +12,7 @@ struct GallaryView: View {
     @Binding var icon: String
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    var symbols = ["moon.stars", "sun.haze.fill", "cloud.rain", "sun.min.fill", "cloud.sun.rain", "snowflake", "heart.circle", "facemask", "brain", "pills.fill", "mustache", "face.dashed", "pencil.slash", "paperplane", "internaldrive", "cart", "note.text", "books.vertical", "magazine", "paperclip", "umbrella", "flag", "eyeglasses", "camera", "scissors", "speedometer", "bandage", "wrench", "printer", "cross.case", "lock", "key", "cpu", "cup.and.saucer.fill", "gift", "flame", "ladybug", "leaf", "giftcard"]
+    var symbols = ["moon.stars", "sun.haze.fill", "cloud.rain", "sun.min.fill", "cloud.sun.rain", "snowflake", "heart.circle", "pawprint.fill", "facemask", "brain", "pills.fill", "mustache", "face.dashed", "pencil.slash", "paperplane", "internaldrive", "cart", "note.text", "books.vertical", "paperclip", "umbrella", "flag", "eyeglasses", "camera", "scissors", "speedometer", "bandage", "wrench", "printer", "cross.case", "lock", "key", "cpu", "cup.and.saucer.fill", "gift", "flame", "ladybug", "leaf", ]
         
     var body: some View {
         ScrollView {

@@ -40,66 +40,50 @@ struct AlterView: View {
     var body: some View {
         Form {
             Section(content: {
-                NavigationLink(destination: {
-                    GallaryView(icon: $icon)
-                }, label: {
-                    Text("图标")
-                    Spacer()
-                    Image(systemName: icon)
-                })
-                HStack {
-                    Text("名称")
-                    TextField("item", text: $name)
-                        .multilineTextAlignment(.trailing)
-                }
-                Toggle("开启提醒", isOn: $notify)
+                BasicInfoForm(icon: $icon, name: $name, notify: $notify)
             }, header: {
                 Text("基本信息")
             })
             Section(content: {
-                Toggle("周期性提醒", isOn: self.$cycleNotify)
-                NavigationLink(destination: {
-                    DatePickerView(date: $start)
-                }, label: {
-                    HStack {
-                        Text((self.cycleNotify ? "开始" : "提醒") + "时间")
-                        Spacer()
-                        Text("\(start.standard)")
-                    }
-                })
-                if self.cycleNotify {
-                    HStack {
-                        TextField("", value: $digit, format: .number)
-                            .multilineTextAlignment(.leading)
-                            .keyboardType(.numberPad)
-                            .onReceive(Just(digit)) { _ in
-                                if digit < 1 {
-                                    digit = 1
-                                } else if digit > 9999 {
-                                    digit = 9999
-                                }
-                            }
-                        Stepper("", value: $digit, in: 1...9999)
-                                        .labelsHidden()
-                    }
-                    Picker("单位", selection: $unit, content: {
-                        ForEach(TimeUnit.allCases, id:\.self) {
-                            Text($0.rawValue)
+                
+                if self.category == .cycle {
+                    NavigationLink(destination: {
+                        DatePickerView(date: $start)
+                    }, label: {
+                        HStack {
+                            Text("开始时间")
+                            Spacer()
+                            Text("\(start.standard)")
                         }
                     })
+                    NotifySettingForm(digit: $digit, unit: $unit)
                     HStack {
                         Text("提醒时间")
                         Spacer()
                         Text("\(start.forward(number: self.digit, unit: self.unit).standard)")
                             .foregroundColor(.secondary)
                     }
+                } else {
+                    Toggle("重复提醒", isOn: self.$cycleNotify)
+                    NavigationLink(destination: {
+                        DatePickerView(date: $start)
+                    }, label: {
+                        HStack {
+                            Text("提醒时间")
+                            Spacer()
+                            Text("\(start.standard)")
+                        }
+                    })
+                    if self.cycleNotify {
+                        NotifySettingForm(digit: $digit, unit: $unit)
+                    }
                 }
             }, header: {
-                Text("提醒周期")
+                Text("提醒设置")
             })            
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(category == .cycle ? "修改物品" : "修改事件")
+        .navigationTitle(category == .cycle ? "修改周期" : "修改定时")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing, content: {
                 Button(action: {
@@ -128,14 +112,15 @@ struct AlterView: View {
             self.item.digit = Int64(self.digit)
             self.item.unit = self.unit.rawValue
             self.item.cycleNotify = self.cycleNotify
-            if self.cycleNotify {
+            if self.category == .cycle {
                 self.item.end = item.start!.forward(
                     number: Int(item.digit),
-                    unit: TimeUnit(rawValue: item.unit!) ?? .hour
+                    unit: TimeUnit.inverse(rawValue: item.unit!)
                 )
             } else {
                 self.item.end = self.start
             }
+            
             if self.notify {
                 item.setNotification()
             } else {

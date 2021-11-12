@@ -37,6 +37,15 @@ class NotifyTools {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
     
+    static func requestAuth() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])  {
+            success, _ in
+            if success {
+                print("authorization granted")
+            }
+        }
+    }
+    
     static func simpleNotify() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])  {
             success, _ in
@@ -52,4 +61,5 @@ class NotifyTools {
         let request = UNNotificationRequest(identifier: "hagemon", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
+
 }

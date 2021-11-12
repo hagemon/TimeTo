@@ -16,7 +16,6 @@ extension Item {
         guard let seconds = components.second else {return ""}
         var unit: String
         var digit: Int = 0
-        print(seconds, finalComponents)
         switch seconds {
         case _ where seconds < 60:
             unit = "秒"
@@ -40,6 +39,15 @@ extension Item {
     
     var isRecent: Bool {
         return (Date.now + 60 * 60 * 24 * 7) > self.end ?? Date.now
+    }
+    
+    func getNextEnd() -> Date {
+        let now = Date.now
+        guard var currentEnd = self.end else { return now }
+        while currentEnd < now {
+            currentEnd = currentEnd.forward(number: Int(self.digit), unit: TimeUnit.inverse(rawValue: self.unit!))
+        }
+        return currentEnd
     }
     
     func setNotification() {

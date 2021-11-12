@@ -6,19 +6,18 @@
 //
 
 import SwiftUI
-import MessageUI
 
 struct SettingsView: View {
     
-    @State var result: Result<MFMailComposeResult, Error>? = nil
     @Binding var schema: ColorScheme?
+    @State var showIntro: Bool = false
     
     let allSchemas: [ColorScheme?] = [.none, .light, .dark]
     
     var body: some View {
         NavigationView {
             Form {
-                Section(content: {
+                Section("通用设置", content: {
                     NavigationLink(destination: {
                         DateRangeView()
                     }, label: {
@@ -41,21 +40,20 @@ struct SettingsView: View {
                         .onChange(of: schema, perform: { s in
                             UserDefaults.standard.setSchema(schema: schema)
                         })
+                    Button(action: {
+                        self.showIntro = true
+                    }, label: {
+                        Text("引导页")
+                    })
+                        .fullScreenCover(isPresented: $showIntro, onDismiss: {}, content: {
+                            IntroductionView(show: $showIntro)
+                        })
                 })
                 NavigationLink(destination: {
                     AboutView()
                 }, label: {
                     Text("关于")
                 })
-//                NavigationLink(destination: {
-//                    if MFMailComposeViewController.canSendMail() {
-//                        MailView(result: self.$result)
-//                    } else {
-//                        Text("设备暂不支持发送邮件")
-//                    }
-//                }, label: {
-//                    Text("反馈")
-//                })
 //                Button(action: {
 //
 //                }, label: {
@@ -76,7 +74,7 @@ struct SettingsView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-    
+        .navigationViewStyle(.stack)
         
     }
     

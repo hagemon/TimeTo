@@ -33,13 +33,16 @@ struct ItemRow: View {
 struct ItemRow_Previews: PreviewProvider {
     @State static var date = Date.now
     static var previews: some View {
-        ItemRow(item: demo_item, date: $date)
-            .padding()
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 350, height: 70))
-        ItemRow(item: experied_item, date: $date)
-            .padding()
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 350, height: 70))
+        Form {
+            ItemRow(item: demo_item, date: $date)
+                .padding()
+                .preferredColorScheme(.dark)
+                .previewLayout(.fixed(width: 350, height: 50))
+            ItemRow(item: experied_item, date: $date)
+                .padding()
+                .preferredColorScheme(.dark)
+                .previewLayout(.fixed(width: 350, height: 50))
+        }
+        
     }
 }

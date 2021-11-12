@@ -11,6 +11,7 @@ import SwiftUI
 struct TimeToApp: App {
     let persistenceController = PersistenceController.shared
     @State var colorSchema: ColorScheme? = UserDefaults.standard.getSchema()
+    @State var showIntro = UserDefaults.standard.isFirstLogin()
     
     var body: some Scene {
         WindowGroup {
@@ -20,6 +21,7 @@ struct TimeToApp: App {
                     .tabItem {
                         Label("日常更换", systemImage: "leaf.fill")
                     }
+                    
                 TimeListView(title: "定时提醒", category: .daily)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .tabItem{
@@ -32,6 +34,9 @@ struct TimeToApp: App {
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
             .preferredColorScheme(colorSchema)
+            .fullScreenCover(isPresented: $showIntro, onDismiss: {}, content: {
+                IntroductionView(show: $showIntro)
+            })
         }
     }
 }

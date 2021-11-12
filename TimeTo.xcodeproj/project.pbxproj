@@ -51,8 +51,12 @@
 		82BCAA2C2732B29B0070E7F5 /* DateRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA2A2732B29B0070E7F5 /* DateRangeView.swift */; };
 		82BCAA2E2732B4440070E7F5 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA2D2732B4440070E7F5 /* AboutView.swift */; };
 		82BCAA2F2732B4440070E7F5 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA2D2732B4440070E7F5 /* AboutView.swift */; };
-		82BCAA3127340C520070E7F5 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA3027340C520070E7F5 /* MailView.swift */; };
-		82BCAA3227340C520070E7F5 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA3027340C520070E7F5 /* MailView.swift */; };
+		82BCAA37273954840070E7F5 /* NotifySettingForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA36273954840070E7F5 /* NotifySettingForm.swift */; };
+		82BCAA38273954840070E7F5 /* NotifySettingForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA36273954840070E7F5 /* NotifySettingForm.swift */; };
+		82BCAA3A273956790070E7F5 /* BasicInfoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA39273956790070E7F5 /* BasicInfoForm.swift */; };
+		82BCAA3B273956790070E7F5 /* BasicInfoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA39273956790070E7F5 /* BasicInfoForm.swift */; };
+		82BCAA3D2739638C0070E7F5 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA3C2739638C0070E7F5 /* IntroductionView.swift */; };
+		82BCAA3E2739638C0070E7F5 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCAA3C2739638C0070E7F5 /* IntroductionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,7 +87,10 @@
 		82AC274A272D797400CCE80F /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		82BCAA2A2732B29B0070E7F5 /* DateRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangeView.swift; sourceTree = "<group>"; };
 		82BCAA2D2732B4440070E7F5 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		82BCAA3027340C520070E7F5 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		82BCAA36273954840070E7F5 /* NotifySettingForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifySettingForm.swift; sourceTree = "<group>"; };
+		82BCAA39273956790070E7F5 /* BasicInfoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoForm.swift; sourceTree = "<group>"; };
+		82BCAA3C2739638C0070E7F5 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
+		82BCAA3F273AA3900070E7F5 /* TimeTo--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TimeTo--iOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +124,7 @@
 		82244EC7272C0C5D0094394B = {
 			isa = PBXGroup;
 			children = (
+				82BCAA3F273AA3900070E7F5 /* TimeTo--iOS--Info.plist */,
 				82244F01272C0F1D0094394B /* TimeTo (iOS).entitlements */,
 				82244ECC272C0C5D0094394B /* Shared */,
 				82244EDE272C0C5E0094394B /* macOS */,
@@ -161,13 +169,9 @@
 		82244EF2272C0C930094394B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				82BCAA3427394E7E0070E7F5 /* Events */,
+				82BCAA3327394E6D0070E7F5 /* TimeList */,
 				82BCAA292732B26F0070E7F5 /* Settings */,
-				82244EF8272C0CB80094394B /* ItemRow.swift */,
-				82244EF9272C0CB80094394B /* TimeListView.swift */,
-				82244F0D272C3A3D0094394B /* AddView.swift */,
-				82AC2744272D60C000CCE80F /* AlterView.swift */,
-				82238797272EB62D00C59B8E /* GallaryView.swift */,
-				8223879E27300BE200C59B8E /* DatePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,9 +211,39 @@
 				82244F10272CC75C0094394B /* SettingsView.swift */,
 				82BCAA2A2732B29B0070E7F5 /* DateRangeView.swift */,
 				82BCAA2D2732B4440070E7F5 /* AboutView.swift */,
-				82BCAA3027340C520070E7F5 /* MailView.swift */,
+				82BCAA3C2739638C0070E7F5 /* IntroductionView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		82BCAA3327394E6D0070E7F5 /* TimeList */ = {
+			isa = PBXGroup;
+			children = (
+				82244EF8272C0CB80094394B /* ItemRow.swift */,
+				82244EF9272C0CB80094394B /* TimeListView.swift */,
+			);
+			path = TimeList;
+			sourceTree = "<group>";
+		};
+		82BCAA3427394E7E0070E7F5 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				82BCAA35273954660070E7F5 /* Components */,
+				82AC2744272D60C000CCE80F /* AlterView.swift */,
+				82244F0D272C3A3D0094394B /* AddView.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		82BCAA35273954660070E7F5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				82238797272EB62D00C59B8E /* GallaryView.swift */,
+				8223879E27300BE200C59B8E /* DatePickerView.swift */,
+				82BCAA36273954840070E7F5 /* NotifySettingForm.swift */,
+				82BCAA39273956790070E7F5 /* BasicInfoForm.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,10 +344,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82BCAA3D2739638C0070E7F5 /* IntroductionView.swift in Sources */,
 				82244EE0272C0C5E0094394B /* TimeTo.xcdatamodeld in Sources */,
 				82244EF6272C0CAC0094394B /* DateTool.swift in Sources */,
 				82244F0E272C3A3D0094394B /* AddView.swift in Sources */,
 				822387A82731796000C59B8E /* UserDefaulsExtension.swift in Sources */,
+				82BCAA3A273956790070E7F5 /* BasicInfoForm.swift in Sources */,
 				82BCAA2E2732B4440070E7F5 /* AboutView.swift in Sources */,
 				82238798272EB62D00C59B8E /* GallaryView.swift in Sources */,
 				82BCAA2B2732B29B0070E7F5 /* DateRangeView.swift in Sources */,
@@ -329,8 +365,8 @@
 				82244EE2272C0C5E0094394B /* TimeToApp.swift in Sources */,
 				82244EE4272C0C5E0094394B /* ContentView.swift in Sources */,
 				82AC2745272D60C000CCE80F /* AlterView.swift in Sources */,
-				82BCAA3127340C520070E7F5 /* MailView.swift in Sources */,
 				82244F14272CCA630094394B /* Enums.swift in Sources */,
+				82BCAA37273954840070E7F5 /* NotifySettingForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,10 +374,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82BCAA3E2739638C0070E7F5 /* IntroductionView.swift in Sources */,
 				82244EE1272C0C5E0094394B /* TimeTo.xcdatamodeld in Sources */,
 				82244EF7272C0CAC0094394B /* DateTool.swift in Sources */,
 				82244F0F272C3A3D0094394B /* AddView.swift in Sources */,
 				822387A92731796000C59B8E /* UserDefaulsExtension.swift in Sources */,
+				82BCAA3B273956790070E7F5 /* BasicInfoForm.swift in Sources */,
 				82BCAA2F2732B4440070E7F5 /* AboutView.swift in Sources */,
 				82238799272EB62D00C59B8E /* GallaryView.swift in Sources */,
 				82BCAA2C2732B29B0070E7F5 /* DateRangeView.swift in Sources */,
@@ -357,8 +395,8 @@
 				82244EE3272C0C5E0094394B /* TimeToApp.swift in Sources */,
 				82244EE5272C0C5E0094394B /* ContentView.swift in Sources */,
 				82AC2746272D60C000CCE80F /* AlterView.swift in Sources */,
-				82BCAA3227340C520070E7F5 /* MailView.swift in Sources */,
 				82244F15272CCA630094394B /* Enums.swift in Sources */,
+				82BCAA38273954840070E7F5 /* NotifySettingForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,9 +525,12 @@
 				DEVELOPMENT_TEAM = MEWHFZ92DY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TimeTo--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -497,7 +538,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = hagemon.TimeTo;
 				PRODUCT_NAME = TimeTo;
 				SDKROOT = iphoneos;
@@ -518,9 +559,12 @@
 				DEVELOPMENT_TEAM = MEWHFZ92DY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TimeTo--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -528,7 +572,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = hagemon.TimeTo;
 				PRODUCT_NAME = TimeTo;
 				SDKROOT = iphoneos;

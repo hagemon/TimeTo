@@ -57,4 +57,13 @@ extension UserDefaults {
         }
         set(key, forKey: "schema")
     }
+    
+    func isFirstLogin() -> Bool {
+        return !self.valueExists(key: "login")
+    }
+    
+    func setLogin() {
+        self.set(true, forKey: "login")
+    }
+    
 }
