@@ -1,37 +1,15 @@
-## Welcome to GitHub Pages
+## 欢迎来到TimeTo支持页面
 
-You can use the [editor on GitHub](https://github.com/hagemon/TimeTo/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+TimeTo是一个免费开源的小软件，包括周期更换和定时提醒功能，希望可以提升您的生活体验。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 周期替换
 
-### Markdown
+您可以在周期替换页面设置一些需要定期更换的物品，比如洗护用品、贴身衣物等。当时间到达的时候会给您的设备发送通知，并通过右滑开始重新计时。
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+当然，您也可以自己挖掘适合自己的用法😄
 
-```markdown
-Syntax highlighted code block
+### 定时提醒
 
-# Header 1
-## Header 2
-### Header 3
+您可以在定时提醒页面设置一些需要定时提醒的任务，比如每两小时走动一次、站起来喝杯水等，或是每天三点提醒您喝杯咖啡休息一下；同时您也可以设置一些不需要重复提醒的任务，在右滑之后便会消失。
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hagemon/TimeTo/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+当然，您也可以自己挖掘适合自己的用法🤔
