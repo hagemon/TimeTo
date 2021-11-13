@@ -40,14 +40,14 @@ struct SettingsView: View {
                         .onChange(of: schema, perform: { s in
                             UserDefaults.standard.setSchema(schema: schema)
                         })
-                    Button(action: {
-                        self.showIntro = true
-                    }, label: {
-                        Text("引导页")
-                    })
-                        .fullScreenCover(isPresented: $showIntro, onDismiss: {}, content: {
-                            IntroductionView(show: $showIntro)
-                        })
+//                    Button(action: {
+//                        self.showIntro = true
+//                    }, label: {
+//                        Text("引导页")
+//                    })
+//                        .fullScreenCover(isPresented: $showIntro, onDismiss: {}, content: {
+//                            IntroductionView(show: $showIntro)
+//                        })
                 })
                 NavigationLink(destination: {
                     AboutView()
