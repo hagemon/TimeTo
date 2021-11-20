@@ -16,24 +16,29 @@ struct TimeToApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                TimeListView(title: "日常更换", category: .cycle)
+                TimeListView(title: "Cycle".localized, category: .cycle)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .tabItem {
-                        Label("日常更换", systemImage: "leaf.fill")
+                        Label("Cycle", systemImage: "leaf.fill")
                     }
                     
-                TimeListView(title: "定时提醒", category: .daily)
+                TimeListView(title: "Schedule".localized, category: .daily)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .tabItem{
-                        Label("定时提醒", systemImage: "figure.walk")
+                        Label("Schedule", systemImage: "figure.walk")
                     }
                 SettingsView(schema: $colorSchema)
                     .tabItem {
-                        Label("设置", systemImage: "slider.vertical.3")
+                        Label("Settings", systemImage: "slider.vertical.3")
                     }
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
             .preferredColorScheme(colorSchema)
+//            .onAppear(perform: {
+//                UITableView.appearance().backgroundColor = nil
+//                UIPageControl.appearance().currentPageIndicatorTintColor = nil
+//                UIPageControl.appearance().pageIndicatorTintColor = nil
+//            })
             .fullScreenCover(isPresented: $showIntro, onDismiss: {}, content: {
                 IntroductionView(show: $showIntro)
             })

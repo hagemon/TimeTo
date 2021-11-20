@@ -18,7 +18,7 @@ struct AlterView: View {
     @State private var showAlert: Bool = false
     
     @State private var notify: Bool = true
-    @State private var name: String = "什么呢🤔"
+    @State private var name: String = ""
     @State private var icon: String = "moon.stars"
     @State private var digit: Int = 1
     @State private var unit: TimeUnit = .hour
@@ -31,7 +31,7 @@ struct AlterView: View {
         self.category = category
         _refreshTime = refreshTime
         _notify = State(initialValue: item.notify)
-        _name = State(initialValue: item.name ?? "什么呢🤔️")
+        _name = State(initialValue: item.name ?? "")
         _icon = State(initialValue: item.icon ?? "moon.stars")
         _digit = State(initialValue: Int(item.digit))
         _unit = State(initialValue: TimeUnit.inverse(rawValue: item.unit ?? "小时"))
@@ -44,7 +44,7 @@ struct AlterView: View {
             Section(content: {
                 BasicInfoForm(icon: $icon, name: $name, notify: $notify)
             }, header: {
-                Text("基本信息")
+                Text("Basic Info")
             })
             Section(content: {
                 
@@ -53,25 +53,25 @@ struct AlterView: View {
                         DatePickerView(date: $start)
                     }, label: {
                         HStack {
-                            Text("开始时间")
+                            Text("Start Time")
                             Spacer()
                             Text("\(start.standard)")
                         }
                     })
                     NotifySettingForm(digit: $digit, unit: $unit)
                     HStack {
-                        Text("提醒时间")
+                        Text("Notification Time")
                         Spacer()
                         Text("\(start.forward(number: self.digit, unit: self.unit).standard)")
                             .foregroundColor(.secondary)
                     }
                 } else {
-                    Toggle("重复提醒", isOn: self.$cycleNotify)
+                    Toggle("Repeat", isOn: self.$cycleNotify)
                     NavigationLink(destination: {
                         DatePickerView(date: $start)
                     }, label: {
                         HStack {
-                            Text("提醒时间")
+                            Text("Notification Time")
                             Spacer()
                             Text("\(start.standard)")
                         }
@@ -81,23 +81,23 @@ struct AlterView: View {
                     }
                 }
             }, header: {
-                Text("提醒设置")
+                Text("Notification Settings")
             })            
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(category == .cycle ? "修改周期" : "修改定时")
+        .navigationTitle(category == .cycle ? "Alter Cycle".localized : "Alter Schedule".localized)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing, content: {
                 Button(action: {
                     self.updateItem()
                 }, label: {
-                    Text("保存")
+                    Text("Save")
                 })
-                    .alert("同步失败，再点一下保存哦☁️", isPresented: $showAlert, actions: {
-                        Button(action: {}, label: {
-                            Text("OK")
-                        })
-                    })
+//                    .alert("同步失败，再点一下保存哦☁️", isPresented: $showAlert, actions: {
+//                        Button(action: {}, label: {
+//                            Text("OK")
+//                        })
+//                    })
             })
         }
         
@@ -108,7 +108,7 @@ struct AlterView: View {
         viewContext.performAndWait {
             self.item.start = self.start
             self.item.icon = self.icon
-            self.item.name = self.name
+            self.item.name = self.name == "" ? "Item Name".localized : self.name
             self.item.category = self.category.rawValue
             self.item.notify = self.notify
             self.item.digit = Int64(self.digit)

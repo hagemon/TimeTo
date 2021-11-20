@@ -47,6 +47,7 @@
 "Light" = "浅色";
 "About" = "关于";
 "Acknowledgement" = "致谢";
+"Introduction" = "引导页";
 
 // DateRange
 "Delay Notification" = "在区间外的通知将会延迟提醒";

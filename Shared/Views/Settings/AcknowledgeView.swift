@@ -9,12 +9,27 @@ import SwiftUI
 
 struct AcknowledgeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            HStack {
+                Text("Illustations are from ")
+                Spacer()
+                Button(action: {
+                    let myUrl = "https://undraw.co"
+                    let url: NSURL = URL(string: myUrl)! as NSURL
+                    UIApplication.shared.open(url as URL)
+                }, label: {
+                    Text("Undraw.co")
+                })
+                    .buttonStyle(.bordered)
+            }
+        }
     }
 }
 
 struct AcknowledgeView_Previews: PreviewProvider {
     static var previews: some View {
-        AcknowledgeView()
+        NavigationView {
+            AcknowledgeView()
+        }
     }
 }

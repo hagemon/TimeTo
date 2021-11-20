@@ -32,7 +32,7 @@ struct GallaryView: View {
                 }
             })
         }
-        .navigationTitle("选择图标")
+        .navigationTitle("Choose Icon")
         
     }
 }

@@ -22,13 +22,13 @@ struct DateRangeView: View {
     
     var body: some View {
         Form {
-            Section("在区间外的通知将会延迟提醒") {
+            Section("Delay Notification".localized) {
                 DatePicker(selection: $start, in: Date.clock(at: 0)...end, displayedComponents: .hourAndMinute, label: {
-                    Text("开始时间")
+                    Text("Range Start")
                 })
                     .datePickerStyle(.compact)
                 DatePicker(selection: $end, in: start...Date.clock(at: 23, minute: 59, second: 59), displayedComponents: .hourAndMinute, label: {
-                    Text("结束时间")
+                    Text("Range End")
                     
                 })
                     .datePickerStyle(.compact)
@@ -47,11 +47,11 @@ struct DateRangeView: View {
                     })
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    Text("保存")
+                    Text("Save")
                 })
             })
         })
-        .navigationTitle("通知设置")
+        .navigationTitle("Notification Settings")
         .navigationBarTitleDisplayMode(.inline)
     }
     

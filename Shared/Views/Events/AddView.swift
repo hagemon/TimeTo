@@ -19,7 +19,7 @@ struct AddView: View {
     var category: Category
     
     @State private var notify: Bool = true
-    @State private var name: String = "什么呢🤔"
+    @State private var name: String = ""
     @State private var icon: String = "moon.stars"
     @State private var digit: Int = 1
     @State private var unit: TimeUnit = .hour
@@ -33,7 +33,7 @@ struct AddView: View {
             Section(content: {
                 BasicInfoForm(icon: $icon, name: $name, notify: $notify)
             }, header: {
-                Text("基本信息")
+                Text("Basic Info")
             })
             
             Section(content: {
@@ -42,20 +42,20 @@ struct AddView: View {
                         DatePickerView(date: $start)
                     }, label: {
                         HStack {
-                            Text("开始时间")
+                            Text("Start Time")
                             Spacer()
                             Text("\(start.standard)")
                         }
                     })
                     NotifySettingForm(digit: $digit, unit: $unit)
                     HStack {
-                        Text("提醒时间")
+                        Text("Notification Time")
                         Spacer()
                         Text("\(start.forward(number: self.digit, unit: self.unit).standard)")
                             .foregroundColor(.secondary)
                     }
                 } else {
-                    Toggle("重复提醒", isOn: self.$cycleNotify)
+                    Toggle("Repeat", isOn: self.$cycleNotify)
                     NavigationLink(destination: {
                         DatePickerView(date: $start)
                             .onChange(of: start, perform: { newValue in
@@ -63,7 +63,7 @@ struct AddView: View {
                             })
                     }, label: {
                         HStack {
-                            Text("提醒时间")
+                            Text("Notification Time")
                             Spacer()
                             if self.dateChosen {
                                 Text("\(start.standard)")
@@ -79,19 +79,19 @@ struct AddView: View {
                 }
                 
             }, header: {
-                Text("提醒设置")
+                Text("Notification Settings")
             })
             
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(category == .cycle ? "新增周期" : "新增定时")
+        .navigationTitle(category == .cycle ? "New Cycle".localized : "New Schedule".localized)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing, content: {
                 Button(action: {
                     self.show = false
                     self.addItem()
                 }, label: {
-                    Text("完成")
+                    Text("Save")
                 })
             })
         }
@@ -111,7 +111,7 @@ struct AddView: View {
             }
         }
         newItem.icon = self.icon
-        newItem.name = self.name
+        newItem.name = self.name == "" ? "Item Name".localized : self.name
         newItem.category = self.category.rawValue
         newItem.notify = self.notify
         newItem.digit = Int64(self.digit)

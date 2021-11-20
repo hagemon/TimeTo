@@ -18,7 +18,7 @@ struct DatePickerView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle("设置时间")
+        .navigationTitle("Set Datetime")
     }
 }
 

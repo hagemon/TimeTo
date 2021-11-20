@@ -23,7 +23,7 @@ struct AboutView: View {
                 
                 Section {
                     Text("Hagemon")
-                    Text("喜欢干净，热爱自由。")
+                    Text("Slogan")
                 }
                 
                 Button(action: {
@@ -68,7 +68,7 @@ struct AboutView: View {
                     }
                 })
             }
-            .navigationTitle("关于")
+            .navigationTitle("About")
         .navigationBarTitleDisplayMode(.inline)
         }
     }

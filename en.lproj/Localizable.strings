@@ -1,10 +1,66 @@
-/* 
-  Localizable.strings
-  TimeTo
 
-  Created by Hagemon on 2021/11/20.
-  
-*/
-Chinese
+// Global
+"Cycle" = "Cycle";
+"Schedule" = "Schedule";
+"Settings" = "Settings";
 
-English
+// Timelist
+"In a week" = "In a week";
+"After a week" = "After a week";
+"Add Note" = "Click Plus Button to Add Items";
+
+// Item row
+"Done" = "Done";
+
+// Add/Alter view
+"Item Name" = "Eh..🤔";
+"Basic Info" = "Basic Information";
+"Start Time" = "Start at";
+"Notification Time" = "Remind at";
+"Repeat" = "Repeat";
+"Notification Settings" = "Notification Settings";
+"New Cycle" = "New Cycle";
+"New Schedule" = "New Schedule";
+"Alter Cycle" = "Alter Cycle";
+"Alter Schedule" = "Alter Schedule";
+"Save" = "Save";
+
+// Basic Info
+"Icon" = "Icon";
+"Name" = "Name";
+"Notification On" = "Notification On";
+"Every" = "Every";
+"Unit" = "Unit";
+
+// DatePikcer
+"Set Datetime" = "Set Datetime";
+
+// Gallary
+"Choose Icon" = "Icon Gallary";
+
+// Settings
+"General" = "General";
+"Schema" = "Schema";
+"Automatic" = "Automatic";
+"Dark" = "Dark";
+"Light" = "Light";
+"About" = "About";
+"Acknowledgement" = "Acknowledgement";
+"Introduction" = "Introduction";
+
+// DateRange
+"Delay Notification" = "Notifications out of this range will be delayed";
+"Range Start" = "Start Time";
+"Range End" = "End Time";
+
+// About
+"Slogan" = "Clean & Freedom";
+
+// Introduction
+"Cycle Slogan" = "Regular Changes";
+"Socks" = "Socks🧦";
+"Daily Slogan" = "Events in Mind";
+"Tea" = "Drink Tea🍵";
+"Allow Notifications" = "Allow Notifications";
+"TimeTo" = "It's time to TimeTo!";
+"Hour" = "Hour";

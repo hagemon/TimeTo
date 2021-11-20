@@ -27,6 +27,11 @@ extension Date {
         return Calendar.current.component(.minute, from: self)
     }
     
+    // TODO: support iOS 14.*
+    static func getNow() -> Date {
+        return Date.now
+    }
+    
     func getTodayStart() -> Date {
         let start = UserDefaults.standard.getGlobalStart()
         return Calendar.current.date(bySettingHour: start.hour, minute: start.minute, second: 0, of: self)!

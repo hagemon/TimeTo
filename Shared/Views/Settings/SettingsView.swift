@@ -17,21 +17,21 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section("通用设置", content: {
+                Section("General".localized, content: {
                     NavigationLink(destination: {
                         DateRangeView()
                     }, label: {
-                        Text("通知设置")
+                        Text("Notification Settings")
                     })
-                    Picker("主题", selection: $schema, content: {
+                    Picker("Schema", selection: $schema, content: {
                         ForEach(allSchemas, id:\.self) {
                             switch $0 {
                             case .none:
-                                Text("自动")
+                                Text("Automatic")
                             case .light:
-                                Text("浅色")
+                                Text("Light")
                             case .dark:
-                                Text("深色")
+                                Text("Dark")
                             case .some(_):
                                 Text("")
                             }
@@ -40,19 +40,24 @@ struct SettingsView: View {
                         .onChange(of: schema, perform: { s in
                             UserDefaults.standard.setSchema(schema: schema)
                         })
-//                    Button(action: {
-//                        self.showIntro = true
-//                    }, label: {
-//                        Text("引导页")
-//                    })
-//                        .fullScreenCover(isPresented: $showIntro, onDismiss: {}, content: {
-//                            IntroductionView(show: $showIntro)
-//                        })
+                    Button(action: {
+                        self.showIntro = true
+                    }, label: {
+                        Text("Introduction")
+                    })
+                        .fullScreenCover(isPresented: $showIntro, onDismiss: {}, content: {
+                            IntroductionView(show: $showIntro)
+                        })
                 })
                 NavigationLink(destination: {
                     AboutView()
                 }, label: {
-                    Text("关于")
+                    Text("About")
+                })
+                NavigationLink(destination: {
+                    AcknowledgeView()
+                }, label: {
+                    Text("Acknowledgement")
                 })
 //                Button(action: {
 //
@@ -60,7 +65,7 @@ struct SettingsView: View {
 //                    Text("☕️ 赞助一杯咖啡")
 //                })
             }
-            .navigationTitle("设置")
+            .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbar {
 //                ToolbarItem(placement: .navigationBarTrailing) {

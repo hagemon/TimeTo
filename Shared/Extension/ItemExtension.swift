@@ -30,7 +30,11 @@ extension Item {
             unit = "天"
             digit = finalComponents.day ?? 0
         }
-        return "\(digit)"+unit
+        var result = "\(digit) "+LocalizeUtil.getLocalizedUnit(unit: unit)
+        if digit > 1 && !LocalizeUtil.isZH {
+            result += "s"
+        }
+        return result
     }
     
     func isExpired(now: Date) -> Bool {
@@ -41,6 +45,10 @@ extension Item {
         return (Date.now + 60 * 60 * 24 * 7) > self.end ?? Date.now
     }
     
+    var localizedUnit: String {
+        guard let unit = self.unit else {return ""}
+        return LocalizeUtil.getLocalizedUnit(unit: unit)
+    }
     
     func getNextEnd() -> Date {
         let now = Date.now

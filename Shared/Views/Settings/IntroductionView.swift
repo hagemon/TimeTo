@@ -13,7 +13,7 @@ struct IntroductionView: View {
     @Binding var show: Bool
     
     @State private var notify: Bool = true
-    @State private var name: String = "什么呢🤔"
+    @State private var name: String = ""
     @State private var icon: String = "moon.stars"
     @State private var digit: Int = 1
     @State private var unit: TimeUnit = .hour
@@ -23,7 +23,7 @@ struct IntroductionView: View {
     @State private var globalNotify: Bool = true
     
     init(show: Binding<Bool>){
-        UITableView.appearance().backgroundColor = .clear
+//        UITableView.appearance().backgroundColor = .clear
         UIPageControl.appearance().currentPageIndicatorTintColor = .black
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
         _show = show
@@ -53,18 +53,18 @@ struct IntroductionView: View {
                 
                 // First Tab
                 Form {
-                    IntroInfo(icon: icon, title: "日常更换，规律生活", name: "袜子🧦")
+                    IntroInfo(icon: icon, title: "Cycle Slogan".localized, name: "Socks".localized)
                     Section(content: {
                         HStack {
-                            Text("开始时间")
+                            Text("Start Time")
                             Spacer()
                             Text("\(start.standard)")
                             Image(systemName: "chevron.forward")
-                                .foregroundColor(.gray)
+                                .foregroundColor(.secondary)
                         }
                         IntroNotifyView(digit: $digit)
                         HStack {
-                            Text("提醒时间")
+                            Text("Notification Time")
                             Spacer()
                             Text("\(start.forward(number: self.digit, unit: self.unit).standard)")
                                 .foregroundColor(.secondary)
@@ -73,12 +73,12 @@ struct IntroductionView: View {
                 }
                 // Second Tab
                 Form {
-                    IntroInfo(icon: "cup.and.saucer.fill", title: "定时提醒，得闲饮茶", name: "喝茶🍵")
+                    IntroInfo(icon: "cup.and.saucer.fill", title: "Daily Slogan".localized, name: "Tea".localized)
                     Section(content: {
                         
-                        Toggle("重复提醒", isOn: self.$cycleNotify)
+                        Toggle("Repeat", isOn: self.$cycleNotify)
                         HStack {
-                            Text("提醒时间")
+                            Text("Notification Time")
                             Spacer()
                             Text("\(start.forward(number: self.digit, unit: self.unit).standard)")
                                 .foregroundColor(.secondary)
@@ -93,7 +93,7 @@ struct IntroductionView: View {
                     Form {
                         Section {
                             Toggle(isOn: $globalNotify){
-                                Text("开启通知")
+                                Text("Allow Notifications")
                             }
                                 .toggleStyle(.switch)
                         }
@@ -107,12 +107,13 @@ struct IntroductionView: View {
                                         NotifyTools.requestAuth()
                                     }
                                 }, label: {
-                                    Text("是时候打开App了")
+                                    Text("TimeTo")
                                 })
                                     .buttonStyle(.bordered)
                                 Spacer()
                             }
-                        }.listRowBackground(Color.clear)
+                        }
+                        .listRowBackground(Color.clear)
                     }
                     Spacer()
                 }
@@ -120,8 +121,14 @@ struct IntroductionView: View {
             .tabViewStyle(.page(indexDisplayMode: .always))
             Spacer()
         }
-        .background(Color("IconBackColor"))
-        .preferredColorScheme(.light)
+//        .background(Color("IconBackColor"))
+        .background(Color(UIColor.systemGroupedBackground))
+//        .preferredColorScheme(.dark)
+//        .onAppear(perform: {
+//            UITableView.appearance().backgroundColor = .clear
+//            UIPageControl.appearance().currentPageIndicatorTintColor = .black
+//            UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
+//        })
     }
 }
 
@@ -140,14 +147,14 @@ fileprivate struct IntroInfo: View {
     var body: some View {
         Section(content: {
             HStack {
-                Text("图标")
+                Text("Icon")
                 Spacer()
                 Image(systemName: icon)
                 Image(systemName: "chevron.forward")
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
             }
             HStack {
-                Text("名称")
+                Text("Name")
                 Spacer()
                 Text(name)
             }
@@ -170,7 +177,7 @@ fileprivate struct IntroNotifyView: View {
     
     var body: some View {
         HStack {
-            Text("每")
+            Text("Every")
             Text("\(digit)")
             Spacer()
             Stepper("", value: $digit, in: 1...9999)
@@ -178,11 +185,11 @@ fileprivate struct IntroNotifyView: View {
                 .disabled(true)
         }
         HStack {
-            Text("单位")
+            Text("Unit")
             Spacer()
-            Text("小时")
+            Text("Hour")
             Image(systemName: "chevron.forward")
-                .foregroundColor(.gray)
+                .foregroundColor(.secondary)
         }
     }
 }

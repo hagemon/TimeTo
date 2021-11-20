@@ -48,7 +48,7 @@ struct TimeListView: View {
             List {
                 if shownItems.count > 0 {
                     if recentItems.count > 0 {
-                        Section("一周内", content: {
+                        Section("In a week".localized, content: {
                             ForEach(recentItems.filter({ item in
                                 return item.isExpired(now: refreshTime)
                             }), id: \.objectID) { item in
@@ -81,7 +81,7 @@ struct TimeListView: View {
                         })
                     }
                     if remoteItems.count > 0 {
-                        Section("一周后", content: {
+                        Section("After a week".localized, content: {
                             ForEach(remoteItems, id: \.objectID) { item in
                                 NavigationLink(destination: AlterView(
                                     category: category,
@@ -110,7 +110,7 @@ struct TimeListView: View {
                     }
                     HStack {
                         Spacer()
-                        Text("点击右上角，添加一个提醒吧！")
+                        Text("Add Note")
                         Spacer()
                     }.padding()
                 }

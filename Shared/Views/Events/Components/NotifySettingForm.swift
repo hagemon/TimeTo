@@ -15,7 +15,7 @@ struct NotifySettingForm: View {
     
     var body: some View {
         HStack {
-            Text("每")
+            Text("Every")
             TextField("", value: $digit, format: .number)
                 .multilineTextAlignment(.leading)
                 .keyboardType(.numberPad)
@@ -30,17 +30,17 @@ struct NotifySettingForm: View {
                             .labelsHidden()
         }
         HStack {
-            Text("单位")
+            Text("Unit")
             Spacer()
             Menu(content: {
-                Picker("单位", selection: $unit, content: {
+                Picker("Unit", selection: $unit, content: {
                     ForEach(TimeUnit.allCases, id:\.self) {
-                        Text($0.rawValue)
+                        Text(LocalizeUtil.getLocalizedUnit(unit: $0.rawValue))
                     }
                 })
             }, label: {
                 Button(action: {}, label: {
-                    Text("\(unit.rawValue)")
+                    Text("\(LocalizeUtil.getLocalizedUnit(unit: unit.rawValue))")
                 })
                     .frame(minWidth: 100, alignment: .trailing)
                     .buttonStyle(.bordered)

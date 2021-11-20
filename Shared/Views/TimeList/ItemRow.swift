@@ -21,7 +21,7 @@ struct ItemRow: View {
                 Spacer()
                 if item.isExpired(now: Date.now) {
                     Image(systemName: "arrow.forward")
-                    Text("右滑完成")
+                    Text("Done")
                 } else {
                     Text("\(item.getGap(now: date))")
                 }

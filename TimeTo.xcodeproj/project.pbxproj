@@ -41,6 +41,12 @@
 		82244F12272CC75C0094394B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82244F10272CC75C0094394B /* SettingsView.swift */; };
 		82244F14272CCA630094394B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82244F13272CCA630094394B /* Enums.swift */; };
 		82244F15272CCA630094394B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82244F13272CCA630094394B /* Enums.swift */; };
+		8244062C2748C869001FDEDD /* AcknowledgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8244062B2748C869001FDEDD /* AcknowledgeView.swift */; };
+		8244062D2748C869001FDEDD /* AcknowledgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8244062B2748C869001FDEDD /* AcknowledgeView.swift */; };
+		824406312748CEEA001FDEDD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 824406342748CEEA001FDEDD /* Localizable.strings */; };
+		824406322748CEEA001FDEDD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 824406342748CEEA001FDEDD /* Localizable.strings */; };
+		82440637274919F7001FDEDD /* LocalizeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82440636274919F7001FDEDD /* LocalizeUtil.swift */; };
+		82440638274919F7001FDEDD /* LocalizeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82440636274919F7001FDEDD /* LocalizeUtil.swift */; };
 		82AC2745272D60C000CCE80F /* AlterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC2744272D60C000CCE80F /* AlterView.swift */; };
 		82AC2746272D60C000CCE80F /* AlterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC2744272D60C000CCE80F /* AlterView.swift */; };
 		82AC2748272D612C00CCE80F /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AC2747272D612C00CCE80F /* Factory.swift */; };
@@ -82,6 +88,10 @@
 		82244F0D272C3A3D0094394B /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		82244F10272CC75C0094394B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		82244F13272CCA630094394B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		8244062B2748C869001FDEDD /* AcknowledgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgeView.swift; sourceTree = "<group>"; };
+		824406332748CEEA001FDEDD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		824406352748CEEC001FDEDD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		82440636274919F7001FDEDD /* LocalizeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeUtil.swift; sourceTree = "<group>"; };
 		82AC2744272D60C000CCE80F /* AlterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlterView.swift; sourceTree = "<group>"; };
 		82AC2747272D612C00CCE80F /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		82AC274A272D797400CCE80F /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
@@ -124,6 +134,7 @@
 		82244EC7272C0C5D0094394B = {
 			isa = PBXGroup;
 			children = (
+				824406342748CEEA001FDEDD /* Localizable.strings */,
 				82BCAA3F273AA3900070E7F5 /* TimeTo--iOS--Info.plist */,
 				82244F01272C0F1D0094394B /* TimeTo (iOS).entitlements */,
 				82244ECC272C0C5D0094394B /* Shared */,
@@ -192,6 +203,7 @@
 				82AC274A272D797400CCE80F /* Binding.swift */,
 				8223879A272EC42700C59B8E /* ItemExtension.swift */,
 				822387A72731796000C59B8E /* UserDefaulsExtension.swift */,
+				82440636274919F7001FDEDD /* LocalizeUtil.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -212,6 +224,7 @@
 				82BCAA2A2732B29B0070E7F5 /* DateRangeView.swift */,
 				82BCAA2D2732B4440070E7F5 /* AboutView.swift */,
 				82BCAA3C2739638C0070E7F5 /* IntroductionView.swift */,
+				8244062B2748C869001FDEDD /* AcknowledgeView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -308,6 +321,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 82244EC7272C0C5D0094394B;
 			productRefGroup = 82244ED8272C0C5E0094394B /* Products */;
@@ -326,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82244EE8272C0C5E0094394B /* Assets.xcassets in Resources */,
+				824406312748CEEA001FDEDD /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82244EE9272C0C5E0094394B /* Assets.xcassets in Resources */,
+				824406322748CEEA001FDEDD /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82BCAA3D2739638C0070E7F5 /* IntroductionView.swift in Sources */,
+				82440637274919F7001FDEDD /* LocalizeUtil.swift in Sources */,
 				82244EE0272C0C5E0094394B /* TimeTo.xcdatamodeld in Sources */,
 				82244EF6272C0CAC0094394B /* DateTool.swift in Sources */,
 				82244F0E272C3A3D0094394B /* AddView.swift in Sources */,
@@ -359,6 +376,7 @@
 				82244EE6272C0C5E0094394B /* Persistence.swift in Sources */,
 				82AC2748272D612C00CCE80F /* Factory.swift in Sources */,
 				8223879F27300BE200C59B8E /* DatePickerView.swift in Sources */,
+				8244062C2748C869001FDEDD /* AcknowledgeView.swift in Sources */,
 				82238795272E3C1C00C59B8E /* NotifiyTools.swift in Sources */,
 				82244F11272CC75C0094394B /* SettingsView.swift in Sources */,
 				82244EFB272C0CB80094394B /* ItemRow.swift in Sources */,
@@ -375,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82BCAA3E2739638C0070E7F5 /* IntroductionView.swift in Sources */,
+				82440638274919F7001FDEDD /* LocalizeUtil.swift in Sources */,
 				82244EE1272C0C5E0094394B /* TimeTo.xcdatamodeld in Sources */,
 				82244EF7272C0CAC0094394B /* DateTool.swift in Sources */,
 				82244F0F272C3A3D0094394B /* AddView.swift in Sources */,
@@ -389,6 +408,7 @@
 				82244EE7272C0C5E0094394B /* Persistence.swift in Sources */,
 				82AC2749272D612C00CCE80F /* Factory.swift in Sources */,
 				822387A027300BE200C59B8E /* DatePickerView.swift in Sources */,
+				8244062D2748C869001FDEDD /* AcknowledgeView.swift in Sources */,
 				82238796272E3C1C00C59B8E /* NotifiyTools.swift in Sources */,
 				82244F12272CC75C0094394B /* SettingsView.swift in Sources */,
 				82244EFC272C0CB80094394B /* ItemRow.swift in Sources */,
@@ -401,6 +421,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		824406342748CEEA001FDEDD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				824406332748CEEA001FDEDD /* en */,
+				824406352748CEEC001FDEDD /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		82244EEA272C0C5E0094394B /* Debug */ = {

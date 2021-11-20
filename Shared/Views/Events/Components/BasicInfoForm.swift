@@ -17,16 +17,16 @@ struct BasicInfoForm: View {
         NavigationLink(destination: {
             GallaryView(icon: $icon)
         }, label: {
-            Text("图标")
+            Text("Icon")
             Spacer()
             Image(systemName: icon)
         })
         HStack {
-            Text("名称")
-            TextField("", text: $name)
+            Text("Name")
+            TextField("Item Name", text: $name)
                 .multilineTextAlignment(.trailing)
         }
-        Toggle("开启提醒", isOn: $notify)
+        Toggle("Notification On", isOn: $notify)
     }
 }
 
@@ -45,3 +45,4 @@ struct BasicInfoForm_Previews: PreviewProvider {
         }
     }
 }
+
