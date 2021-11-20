@@ -69,7 +69,7 @@ struct TimeListView: View {
                                 if !item.isExpired(now: refreshTime) {
                                     NavigationLink(destination: AlterView(
                                         category: category,
-                                        item: item
+                                        item: item, refreshTime: $refreshTime
                                     ).environment(\.managedObjectContext, viewContext)) {
                                         ItemRow(item: item, date: $refreshTime)
                                     }
@@ -85,7 +85,7 @@ struct TimeListView: View {
                             ForEach(remoteItems, id: \.objectID) { item in
                                 NavigationLink(destination: AlterView(
                                     category: category,
-                                    item: item
+                                    item: item, refreshTime: $refreshTime
                                 ).environment(\.managedObjectContext, viewContext)) {
                                     ItemRow(item: item, date: $refreshTime)
                                 }
@@ -128,7 +128,7 @@ struct TimeListView: View {
 //                        Label("Add Item", systemImage: "plus")
 //                    }
                     NavigationLink(destination: {
-                        AddView(show: self.$showAddView, category: category)
+                        AddView(show: self.$showAddView, refreshTime: $refreshTime, category: category)
                     }, label: {
                         Label("Add Item", systemImage: "plus")
                     })
@@ -145,7 +145,12 @@ struct TimeListView: View {
         .navigationViewStyle(.stack)
         .onAppear(perform: {
             refreshTime = Date.now
+            print("refresh time update:", refreshTime)
         })
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            refreshTime = Date.now
+            print("refresh time update:", refreshTime)
+        }
     }
     
     private func deleteItem(at offsets: IndexSet, in section: Int) {
@@ -173,7 +178,9 @@ struct TimeListView: View {
             item.setNotification()
         } else {
             if item.cycleNotify {
-                item.end = item.getNextEnd()
+                let nextEnd = item.getNextEnd()
+                item.start = nextEnd
+                item.end = nextEnd
                 item.setNotification()
             } else {
                 item.deleteNotification()

@@ -41,6 +41,7 @@ extension Item {
         return (Date.now + 60 * 60 * 24 * 7) > self.end ?? Date.now
     }
     
+    
     func getNextEnd() -> Date {
         let now = Date.now
         guard var currentEnd = self.end else { return now }
@@ -48,6 +49,13 @@ extension Item {
             currentEnd = currentEnd.forward(number: Int(self.digit), unit: TimeUnit.inverse(rawValue: self.unit!))
         }
         return currentEnd
+    }
+    
+    var itemId: String {
+        guard let stamp = self.timestamp else {return "invalid"}
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter.string(from: stamp)
     }
     
     func setNotification() {
@@ -59,10 +67,10 @@ extension Item {
             title = "是时候\(self.name!)啦🏃‍♀️"
         }
         self.deleteNotification()
-        NotifyTools.notify(title: title, identifier: self.objectID.description, date: self.end!)
+        NotifyTools.notify(title: title, identifier: self.itemId, date: self.end!)
     }
     
     func deleteNotification() {
-        NotifyTools.removeNotification(identifier: self.objectID.description)
+        NotifyTools.removeNotification(identifier: self.itemId)
     }
 }

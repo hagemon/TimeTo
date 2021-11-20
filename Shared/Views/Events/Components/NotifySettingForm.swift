@@ -29,11 +29,29 @@ struct NotifySettingForm: View {
                 Stepper("", value: $digit, in: 1...9999)
                             .labelsHidden()
         }
-        Picker("单位", selection: $unit, content: {
-            ForEach(TimeUnit.allCases, id:\.self) {
-                Text($0.rawValue)
-            }
-        })
+        HStack {
+            Text("单位")
+            Spacer()
+            Menu(content: {
+                Picker("单位", selection: $unit, content: {
+                    ForEach(TimeUnit.allCases, id:\.self) {
+                        Text($0.rawValue)
+                    }
+                })
+            }, label: {
+                Button(action: {}, label: {
+                    Text("\(unit.rawValue)")
+                })
+                    .frame(minWidth: 100, alignment: .trailing)
+                    .buttonStyle(.bordered)
+            })
+            
+        }
+//        Picker("单位", selection: $unit, content: {
+//            ForEach(TimeUnit.allCases, id:\.self) {
+//                Text($0.rawValue)
+//            }
+//        })
     }
 }
 

@@ -14,6 +14,7 @@ struct AlterView: View {
         
     var category: Category
     @ObservedObject var item: Item
+    @Binding var refreshTime: Date
     @State private var showAlert: Bool = false
     
     @State private var notify: Bool = true
@@ -25,9 +26,10 @@ struct AlterView: View {
     
     @State private var cycleNotify = true
     
-    init(category: Category, item: Item) {
+    init(category: Category, item: Item, refreshTime: Binding<Date>) {
         self.item = item
         self.category = category
+        _refreshTime = refreshTime
         _notify = State(initialValue: item.notify)
         _name = State(initialValue: item.name ?? "什么呢🤔️")
         _icon = State(initialValue: item.icon ?? "moon.stars")
@@ -128,6 +130,7 @@ struct AlterView: View {
             }
             do {
                 try viewContext.save()
+                self.refreshTime = Date.now
                 self.presentationMode.wrappedValue.dismiss()
             } catch {
                 let nsError = error as NSError
@@ -141,9 +144,10 @@ struct AlterView: View {
 struct AlterView_Previews: PreviewProvider {
     @State static var value = false
     @StateObject static var item = Factory.itemFactory(viewContext: PersistenceController.preview.container.viewContext)
+    @State static var date = Date.now
     static var previews: some View {
         NavigationView {
-            AlterView(category: .cycle, item: item)
+            AlterView(category: .cycle, item: item, refreshTime: $date)
                 .preferredColorScheme(.dark)
                 .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }

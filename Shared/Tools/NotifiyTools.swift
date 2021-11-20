@@ -35,6 +35,7 @@ class NotifyTools {
     
     static func removeNotification(identifier: String) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+        print("Delete notification for", identifier)
     }
     
     static func requestAuth() {

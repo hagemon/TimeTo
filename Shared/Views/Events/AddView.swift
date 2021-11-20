@@ -14,7 +14,8 @@ struct AddView: View {
     @Environment(\.presentationMode) var presentation
     
     @Binding var show: Bool
-    
+    @Binding var refreshTime: Date
+
     var category: Category
     
     @State private var notify: Bool = true
@@ -120,6 +121,7 @@ struct AddView: View {
             newItem.setNotification()
         }
         do {
+            self.refreshTime = Date.now
             try viewContext.save()
         } catch {
             let nsError = error as NSError
@@ -132,14 +134,15 @@ struct AddView: View {
 
 struct AddView_Previews: PreviewProvider {
     @State static var value = false
+    @State static var date = Date.now
     static var previews: some View {
         NavigationView {
-            AddView(show: $value, category: .cycle)
+            AddView(show: $value, refreshTime: $date, category: .cycle)
                 .preferredColorScheme(.light)
                 .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
         NavigationView {
-            AddView(show: $value, category: .daily)
+            AddView(show: $value, refreshTime: $date, category: .daily)
                 .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }
