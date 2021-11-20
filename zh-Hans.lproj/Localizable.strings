@@ -1,0 +1,66 @@
+
+// Global
+"Cycle" = "日常更换";
+"Schedule" = "定时提醒";
+"Settings" = "设置";
+
+// Timelist
+"In a week" = "一周内";
+"After a week" = "一周后";
+"Add Note" = "点击右上角，添加一个提醒吧！";
+
+// Item row
+"Done" = "右滑完成";
+
+// Add/Alter view
+"Item Name" = "什么呢🤔";
+"Basic Info" = "基本信息";
+"Start Time" = "开始时间";
+"Notification Time" = "提醒时间";
+"Repeat" = "重复提醒";
+"Notification Settings" = "提醒设置";
+"New Cycle" = "新增周期";
+"New Schedule" = "新增定时";
+"Alter Cycle" = "修改周期";
+"Alter Schedule" = "修改定时";
+"Save" = "保存";
+
+// Basic Info
+"Icon" = "图标";
+"Name" = "名称";
+"Notification On" = "开启提醒";
+"Every" = "每";
+"Unit" = "单位";
+
+// DatePikcer
+"Set Datetime" = "设置时间";
+
+// Gallary
+"Choose Icon" = "选择图标";
+
+// Settings
+"General" = "通用设置";
+"Notification Settings" = "通知设置";
+"Schema" = "主题";
+"Automatic" = "自动";
+"Dark" = "深色";
+"Light" = "浅色";
+"About" = "关于";
+"Acknowledgement" = "致谢";
+
+// DateRange
+"Delay Notification" = "在区间外的通知将会延迟提醒";
+"Range Start" = "开始时间";
+"Range End" = "结束时间";
+
+// About
+"Slogan" = "喜欢干净，热爱自由";
+
+// Introduction
+"Cycle Slogan" = "日常更换，规律生活";
+"Socks" = "袜子🧦";
+"Daily Slogan" = "定时提醒，得闲饮茶";
+"Tea" = "喝茶🍵";
+"Allow Notifications" = "允许通知";
+"TimeTo" = "是时候进入TimeTo了";
+"Hour" = "小时";
