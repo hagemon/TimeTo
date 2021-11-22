@@ -65,3 +65,7 @@
 "Allow Notifications" = "允许通知";
 "TimeTo" = "是时候进入TimeTo了";
 "Hour" = "小时";
+
+// Notification
+"Cycle Notification %@" = "是时候更换%@啦♻️";
+"Daily Notification %@" = "是时候%@啦🏃‍♀️";

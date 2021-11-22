@@ -64,3 +64,7 @@
 "Allow Notifications" = "Allow Notifications";
 "TimeTo" = "It's time to TimeTo!";
 "Hour" = "Hour";
+
+// Notification
+"Cycle Notification %@" = "Time To Change %@♻️";
+"Daily Notification %@" = "It's Time To %@🏃‍♀️";

@@ -70,9 +70,9 @@ extension Item {
         var title: String
         let c = Category.inverse(rawValue: self.category ?? "cycle")
         if c == .cycle {
-            title = "是时候更换\(self.name!)啦♻️"
+            title = "Cycle Notification \(self.name!)".localized
         } else {
-            title = "是时候\(self.name!)啦🏃‍♀️"
+            title = "Daily Notification \(self.name!)".localized
         }
         self.deleteNotification()
         NotifyTools.notify(title: title, identifier: self.itemId, date: self.end!)
